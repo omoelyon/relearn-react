@@ -55,7 +55,7 @@ class App extends Component {
         color: "black",
       },
     };
-
+    let buttonText = "Show Lists";
     let persons = null;
 
     if (this.state.showPersons) {
@@ -79,6 +79,8 @@ class App extends Component {
         </div>
       );
 
+      buttonText = "Hide list";
+
       style.backgroundColor = "red";
       style[":hover"] = {
         backgroundColor: "salmon",
@@ -101,7 +103,7 @@ class App extends Component {
           <h1>hello I am learning react</h1>
           <p className={classes.join(" ")}>this is really working</p>
           <button style={style} onClick={this.toggleNameHandler}>
-            toggle list
+            {buttonText}
           </button>
           {persons}
           <div className="container">
