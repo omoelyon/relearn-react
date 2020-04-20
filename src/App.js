@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import Radium from "radium";
+import Radium, { StyleRoot } from "radium";
 import Person from "./Person/Person";
 
 class App extends Component {
@@ -50,9 +50,10 @@ class App extends Component {
       border: "1px solid blue",
       padding: "8px",
       cursor: "pointer",
-      ':hover':{
-        backgroundColor: 'lightGreen'
-      }
+      ":hover": {
+        backgroundColor: "lightgreen",
+        color: "black",
+      },
     };
 
     let persons = null;
@@ -79,6 +80,10 @@ class App extends Component {
       );
 
       style.backgroundColor = "red";
+      style[":hover"] = {
+        backgroundColor: "salmon",
+        color: "black",
+      };
     }
 
     const classes = [];
@@ -91,17 +96,19 @@ class App extends Component {
     }
 
     return (
-      <div className="App">
-        <h1>hello I am learning react</h1>
-        <p className={classes.join(" ")}>this is really working</p>
-        <button style={style} onClick={this.toggleNameHandler}>
-          toggle list
-        </button>
-        {persons}
-        <div className="container">
-          <h3>React Form</h3>
+      <StyleRoot>
+        <div className="App">
+          <h1>hello I am learning react</h1>
+          <p className={classes.join(" ")}>this is really working</p>
+          <button style={style} onClick={this.toggleNameHandler}>
+            toggle list
+          </button>
+          {persons}
+          <div className="container">
+            <h3>React Form</h3>
+          </div>
         </div>
-      </div>
+      </StyleRoot>
     );
   }
 }
