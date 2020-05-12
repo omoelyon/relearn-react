@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import Person from "./Person/Person";
+import CountDisplay from "./containers/countDisplay";
 
 class App extends Component {
   state = {
@@ -93,17 +94,25 @@ class App extends Component {
     }
 
     return (
-        <div className="App">
-          <h1>hello I am learning react</h1>
-          <p className={classes.join(" ")}>this is really working</p>
-          <button style={style} onClick={this.toggleNameHandler}>
-            {buttonText}
-          </button>
-          {persons}
-          <div className="container">
-            <h3>React Form</h3>
-          </div>
+      <div className="App">
+        <input
+          type="date"
+          className="timeValue"
+          ref={(inp) => {
+            this.inputElement = inp;
+          }}
+        />
+        <CountDisplay />
+        <h1>hello I am learning react</h1>
+        <p className={classes.join(" ")}>this is really working</p>
+        <button style={style} onClick={this.toggleNameHandler}>
+          {buttonText}
+        </button>
+        {persons}
+        <div className="container">
+          <h3>React Form</h3>
         </div>
+      </div>
     );
   }
 }
